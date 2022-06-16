@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="POST">
+        <input type="text" name="firstname" id="firstname"><br><br>    
+        <input type="text" name="password" id="password"><br>
+        <button id="btn" type="button">submit</button><br>
+    </form>
+    <script type="text/javascript">
+        let btn = document.getElementById("btn");
+            btn.onclick= function(){
+                let andrew = document. getElementById("firstname").value;
+                let yakubu = document. getElementById("password").value;
+
+                console.log(andrew)
+                console.log(yakubu)
+            
+
+            let person= {
+                andrew: andrew,
+                yakubu: yakubu   
+            }
+            
+            let checkerMessage = storeView();
+
+            checkerMessage.push (person);
+            
+            checkerMessage =JSON.stringify(checkerMessage);
+            
+            localStorage.setItem("checkerMessage", checkerMessage)
+        }
+            
+            function storeView(){
+                let checkerMessage =localStorage.getItem("storeView");
+                if (checkerMessage == null || checkerMessage == undefined) {
+                    return[];
+                }else{
+                    storeView= JSON.parse(checkerMessage);
+                    return checkerMessage
+                }
+            }
+    </script>
+</body>
+</html>
